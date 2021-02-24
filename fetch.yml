@@ -1,0 +1,15 @@
+- name: "Copy files" 
+  hosts: all 
+  become: yes 
+  gather_facts: false 
+  vars: 
+    source: /home/devops/pranay/two.txt
+    dest: /home/devops/pranay
+  tasks: 
+    - name: "fetch  file"
+      fetch:
+        src: "{{source}}"
+        dest: "{{dest}}"
+        owner: devops
+        group: root
+        mode: 777 
